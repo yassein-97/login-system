@@ -120,7 +120,6 @@ if(homePage){
         else{
             homeMessage.innerHTML = `Welcom ${usersList[nameIndex].name}`;
         }
-        
     };
     // when logout delte userid from localstorage
     logoutBtn.addEventListener('click',function(){
