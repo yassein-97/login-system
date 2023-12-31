@@ -1,0 +1,71 @@
+/* genral classes */
+.w-55{
+    width: 55%;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+/* login & signup &home */
+.login,.signUp,.home{
+    background-color: #24353F;
+}
+.login-form,.signUp-form,.home-form{
+    background-color: #24353F;
+    box-shadow: 0px 0px 55px -5px rgba(0,0,0,1);
+    -webkit-box-shadow: 0px 0px 55px -5px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 0px 55px -5px rgba(0,0,0,1);  
+}
+.login input,.signUp input{
+    background-color: #24353F;
+    color: white;
+}
+.form-control:focus {
+    background-color: #24353F;
+    color: white;
+    box-shadow: none;
+}
+.form-control::placeholder {
+    color: #B6B6B6;
+}
+.btn:hover {
+    color: white;
+}
+a{
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/*home navbar*/
+.navbar{
+    background-color: #24353F;
+    background-color: #24353F;
+    box-shadow: 0px 0px 55px -5px rgba(0,0,0,1);
+    -webkit-box-shadow: 0px 0px 55px -5px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 0px 55px -5px rgba(0,0,0,1);  
+}
+/*home*/
+.home{
+    position: relative;
+}
+.home-form{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.btn-outline-warning {
+    color: #B6B6B6;
+}
+/*signup*/
+.layer{
+    position: relative;
+}
+#showPassword,#hidePassword{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #B6B6B6;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign up</title>
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <section class="signUp vh-100 p-1" id="signUp">
+        <div class="signUp-form w-55 mx-auto mt-5 text-center p-5">
+            <h1 class="text-info mb-4">Smart Login System</h1>
+
+            <input id="nameInput" type="text" class="form-control" placeholder="Enter Your Name">
+            <p id="errorInvalidName" class="text-danger text-start d-none">Name must start with captal and more than 3 charachter</p>
+            <input id="emailInput" type="email" class="form-control mt-4" placeholder="Enter Your Email">
+            <p id="errorInvalidEmail" class="text-danger text-start d-none">invalid Email</p>
+            <p id="errorUsedEmail" class="text-danger text-start d-none">This Email alredy exist </p>
+            <div class="layer">
+                <input id="passwordInput" type="password" class="form-control my-4" placeholder="Enter Your Password">
+                <i id="showPassword" class='icon-eye-slash cursor-pointer'></i>
+                <i id="hidePassword" class='icon-eye d-none cursor-pointer'></i>
+            </div>
+            
+            <p id="errorEmptyInputs" class="text-danger d-none">All inputs is required</p>
+            <a id="signUpBtn" class="btn btn-outline-info w-100 mb-4 text-decoration-none">Sign Up</a>
+            <p class="text-white">You have an account? <span><a class="text-white" href="index.html"> Signin</a></span></p>
+        </div>
+    </section>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

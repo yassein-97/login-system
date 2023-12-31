@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <section class="login vh-100 p-1" id="login">
+        <div class="login-form w-55 mx-auto mt-5 text-center p-5">
+            <h1 class="text-info mb-4">Smart Login System</h1>
+
+            <input id="userEmail" type="email" class="form-control" placeholder="Enter Your Email">
+            <!-- <input id="userPassword" type="password" class="form-control my-4" placeholder="Enter Your Password"> -->
+            <div class="layer">
+                <input id="userPassword" type="password" class="form-control my-4" placeholder="Enter Your Password"> 
+                <i id="showPassword" class='icon-eye-slash cursor-pointer'></i>
+                <i id="hidePassword" class='icon-eye d-none cursor-pointer'></i>
+            </div>
+            <p id="errorEmptyInputs" class="text-danger d-none">All inputs is required</p>
+            <p id="errorInvalidInputs" class="text-danger d-none">incorrect email or password</p>
+            <a id="loginBtn" class="btn btn-outline-info w-100 mb-4 text-decoration-none">login</a>
+            <p class="text-white">Don’t have an account? <span><a class="text-white" href="signup.html"> Sign Up</a></span></p>
+        </div>
+    </section>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
