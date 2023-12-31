@@ -41,20 +41,7 @@ function createNewUser(){
     localStorage.setItem('users',JSON.stringify(usersList));
 };
 
-//while in signup page
-if(signUpPage){
-    signUpBtn.addEventListener('click',()=>{
-        if(isNotEmpty() && emailValidation() && checkEmailExistence()){
-            createNewUser(); 
-            signUpBtn.setAttribute('href','index.html');
-        }
-        // else{
-        //     alert('a7a')
-        // };
-    });
-};
-
-// check if user email and password valid or not
+// check if user email and password exist or not
 function checkLoginValidation(){
     let email = loginEmail.value;
     let password = loginPassword.value;
@@ -78,7 +65,7 @@ if(loginPage){
     loginBtn.addEventListener('click',function(){
         // if user doesn`t entered any inputs
         if(loginEmail.value =='' || loginPassword.value==''){
-            errorEmptyInputs.classList.remove('d-none')
+            errorEmptyInputs.classList.remove('d-none');
         }
         else{
             let validLogin = checkLoginValidation();
@@ -88,7 +75,7 @@ if(loginPage){
 
                 errorEmptyInputs.classList.add('d-none');
                 errorInvalidInputs.classList.add('d-none');
-        }
+            }
             else{
                 errorInvalidInputs.classList.remove('d-none');
                 errorEmptyInputs.classList.add('d-none');
@@ -121,23 +108,24 @@ if(homePage){
             homeMessage.innerHTML = `Welcom ${usersList[nameIndex].name}`;
         }
     };
-    // when logout delte userid from localstorage
+    // when logout delete userid from localstorage
     logoutBtn.addEventListener('click',function(){
         localStorage.removeItem('userId');
     })
 }
 
-
+// validate email inputs
 function emailValidation(){
     let regx = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
      return regx.test(signUpEmail.value);
 };
-
+//validate name input
 function nameValidation(){
     let regx = /^[A-Z]{1}[a-zA-Z0-9]{2,19}$/;
      return regx.test(signUpName.value);
 };
 
+//check if email used alrady or not
 function checkEmailExistence(){
     let email = signUpEmail.value;
     for(let i=0; i<usersList.length ; i++){
@@ -148,6 +136,7 @@ function checkEmailExistence(){
     return true;
 };
 
+//check if user didn`t enter any inputs
 function isNotEmpty(){
     if(signUpName.value =='' || signUpEmail.value =='' || signUpPassword.value ==''){
         errorEmptyInputs.classList.remove('d-none');
@@ -159,7 +148,15 @@ function isNotEmpty(){
     }
 };
 
+//while in signup page
 if(signUpPage){
+    signUpBtn.addEventListener('click',()=>{
+        if(isNotEmpty() && emailValidation() && checkEmailExistence()){
+            createNewUser(); 
+            signUpBtn.setAttribute('href','index.html');
+        }
+    });
+
     signUpEmail.addEventListener('blur',function(){
         let validEmail = emailValidation();
         if(validEmail){
