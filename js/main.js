@@ -23,7 +23,7 @@ const logoutBtn = document.querySelector('#logoutBtn');
 
 // array of users
 let usersList = [];
-let nameIndex=0;
+// let userLogin=0;
 
 // get data from Local Storage
 if (localStorage.getItem("users") != null) {
@@ -32,7 +32,7 @@ if (localStorage.getItem("users") != null) {
 
 //create new user 
 function createNewUser(){
-    let user = {
+    const user = {
         name: signUpName.value,
         email: signUpEmail.value,
         password: signUpPassword.value
@@ -46,17 +46,21 @@ function checkLoginValidation(){
     let email = loginEmail.value;
     let password = loginPassword.value;
 
-    for(let i=0; i<usersList.length ; i++){
-        if(usersList[i].email==email && usersList[i].password ==password){
-            if(i ==0 ){
-                return true;
-            }
-            else{
-                return i;   
-            }
-        }
-    }
-    return false;
+    let res = usersList.filter(function(user){
+        return user.email == email && user.password == password;
+    });
+    return res;
+    // for(let i=0; i<usersList.length ; i++){
+    //     if(usersList[i].email==email && usersList[i].password ==password){
+    //         if(i ==0 ){
+    //             return true;
+    //         }
+    //         else{
+    //             return i;   
+    //         }
+    //     }
+    // }
+    // return false;
 }
 
 // while in login page
@@ -66,12 +70,14 @@ if(loginPage){
         // if user doesn`t entered any inputs
         if(loginEmail.value =='' || loginPassword.value==''){
             errorEmptyInputs.classList.remove('d-none');
+            errorInvalidInputs.classList.add('d-none');
         }
         else{
             let validLogin = checkLoginValidation();
-            if(validLogin){
+            if(validLogin != 0){
                 loginBtn.setAttribute('href','home.html');
-                localStorage.setItem('userId',JSON.stringify(validLogin));
+                // console.log(validLogin);
+                localStorage.setItem('user',JSON.stringify(validLogin));
 
                 errorEmptyInputs.classList.add('d-none');
                 errorInvalidInputs.classList.add('d-none');
@@ -96,21 +102,22 @@ if(loginPage){
 
 // while in home page
 if(homePage){
-    if (localStorage.getItem("userId") != null) {
+    if (localStorage.getItem("user") != null) {
         // get the index for login user to show his name
-        nameIndex = JSON.parse(localStorage.getItem('userId'));
+        let userLogin = JSON.parse(localStorage.getItem('user'));
         // case user at index 0
-        if(String(nameIndex) == "true"){
-            homeMessage.innerHTML = `Welcom ${usersList[0].name}`;
-        }
-        // otherwise
-        else{
-            homeMessage.innerHTML = `Welcom ${usersList[nameIndex].name}`;
-        }
+        // if(String(userLogin) == "true"){
+        //     homeMessage.innerHTML = `Welcom ${usersList[0].name}`;
+        // }
+        // // otherwise
+        // else{
+            homeMessage.innerHTML = `Welcom ${userLogin[0].name}`;
+            // console.log(userLogin);
+        // }
     };
     // when logout delete userid from localstorage
     logoutBtn.addEventListener('click',function(){
-        localStorage.removeItem('userId');
+        localStorage.removeItem('user');
     })
 }
 
